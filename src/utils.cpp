@@ -1,7 +1,12 @@
 #include "utils.hpp"
+#include <string>
+#include <fstream>
 
 namespace beast = boost::beast;
 namespace http = beast::http;
+using namespace std;
+
+string accessFileContent(const string& filePath);
 
 http::response<http::string_body> handle_request(const http::request<http::string_body>& req) {
   http::response<http::string_body> res;
@@ -15,8 +20,13 @@ http::response<http::string_body> handle_request(const http::request<http::strin
   if (req.method() == http::verb::get) {
     if (req.target() == "/") {
       res.result(http::status::ok);
-      res.body() = "<h1 style=\"text-align: center;\">CSCE 1102</h1>";
-    } else {
+      res.body() = accessFileContent("static/index.html");
+    }
+    else if (req.target() == "/Nada"){
+      res.result(http::status::ok);
+      res.body() = accessFileContent("static/Nada.html");
+    } 
+    else {
       res.result(http::status::not_found);
       res.body() = "<h1 style=\"text-align: center;\">404 Not Found</h1>";
     }
@@ -28,4 +38,22 @@ http::response<http::string_body> handle_request(const http::request<http::strin
 
   res.prepare_payload();
   return res;
+}
+
+string accessFileContent(const string& filePath)
+{
+  ifstream file;
+  string content = "", line;
+  file.open(filePath);
+  
+  if(file.is_open())
+  {
+    while(!file.eof())
+    {
+      getline(file, line);
+      content += line + "\n";
+    }
+  }
+
+  return content;
 }
