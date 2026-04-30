@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nada - Bio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 420px;
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            animation: floatIn 1.2s ease-out;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #00e5ff;
+        }
+
+        .tag {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .highlight {
+            color: #00e5ff;
+            font-weight: bold;
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #00e5ff;
+            filter: blur(120px);
+            opacity: 0.2;
+            border-radius: 50%;
+            top: 10%;
+            left: 20%;
+            animation: pulse 6s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div class="card">
+    <h1>Zeyad Mohamed</h1>
+    <div class="tag">Software Engineering Student • AUC</div>
+
+    <p><span class="highlight">Age:</span> 19</p>
+    <p><span class="highlight">Country:</span> Egypt 🇪🇬</p>
+    <p><span class="highlight">City:</span> Alexandria</p>
+
+    <p>
+        A high-achieving student at the American University in Cairo,
+        with a strong background in mathematics and problem solving.
+    </p>
+
+    <p>
+        Ranked <span class="highlight">8th nationwide</span> in Egypt’s Thanaweya Amma (Scientific Mathematics stream),
+        showing a strong foundation in analytical thinking and academic excellence.
+    </p>
+
+    <p>
+        Currently exploring software engineering, systems design, and building things that actually work in the real world.
+    </p>
+</div>
+
+</body>
+</html>
